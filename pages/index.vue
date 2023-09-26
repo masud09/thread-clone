@@ -6,8 +6,9 @@
             <div class="mx-auto max-w-[500px] overflow-hidden">
                 <div id="Posts" class="px-4 max-w-[600px] max-auto">
                     <div v-if="isPosts" v-for="post in posts" :key="post">
-                        <Post :post="post" @isDeleted="posts=[]"/>
-
+                        <Post :post="post" @isDeleted="posts=[]
+                        "/>
+                       
                     </div>
 
                 </div>

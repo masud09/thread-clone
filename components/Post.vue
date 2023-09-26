@@ -103,6 +103,7 @@
       </div>
 
     </div>
+    <div class="h-[1px] bg-gary-800 w-full mt-3"/>
   </div>
 </template>
 
