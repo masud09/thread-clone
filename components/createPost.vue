@@ -15,7 +15,36 @@
 
                 <div class="text-[16px] font-semibold"> New Thread </div>
 
+                
+                   
+                
+
+                
+
+
             </div>
+            <div id="Post" class="z-40 bottom-0 max-h-[100vh-200px] w-full px-3 max-w-[500px]">
+
+<div class="py-2 w-full">
+    <div class=" flex items-center">
+
+        <div class="flex items-center text-white">
+            <img class="rounded-full h-[35px]" src="https://picsum.photos/id/223/50" alt=""/>
+            <div class="ml-2 font-semibold text-[18px]">jon Weeks Dev
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+            
+
+            
+            
 
         </div>
      
