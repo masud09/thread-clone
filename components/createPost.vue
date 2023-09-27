@@ -54,6 +54,28 @@
                   class="w-full bg-black outline-none"
                 ></textarea>
               </div>
+              <div class=" w-full">
+                <div class="flex flex-col gap-2 py-1">
+
+                  <div v-if="fileDisplay">
+                    <img class="mx-auto w-full mt-2 mr-2 rounded-lg" :src="fileDisplay" alt=""/>
+
+                  </div>
+                  <label for="fileInput">
+                    <Icon name="clarity:paperclip-line" color="#ffffff" size="25"/>
+                    <input
+                     ref="file"
+                     type="file"
+                     id="fileInput"
+                     @input="onChange"
+                     hidden 
+                     accept=".jpg,.jpeg,.png" />
+
+                  </label>
+
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
