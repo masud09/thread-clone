@@ -80,6 +80,21 @@
           </div>
         </div>
       </div>
+      <button 
+       v-if="text"
+       :disabled="isLoading"
+       class="fixed bottom-0 font-bold text-lg w-full p-2 bg-black inline-block float-right p-4 border-t border-t-gray-700" 
+       :class="isLoading ? 'text-gray-600' : 'text-blue-600'" 
+      >
+      <div v-if="!isLoading">Post</div>
+      <div v-else class="flex items-center gap-2 justify-center">
+        <Icon name="eos-icons:bubble-loading" size="25"/>
+        Please wait...
+
+      </div>
+
+      </button>
+
     </div>
   </div>
  
