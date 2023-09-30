@@ -26,13 +26,13 @@
       >
         <div class="py-2 w-full">
           <div class="flex items-center">
-            <div class="flex items-center text-white">
+            <div v-if="user" class="flex items-center text-white">
               <img
                 class="rounded-full h-[35px]"
-                src="https://picsum.photos/id/223/50"
+                :src="user.identities[0].identity_data.avatar_url"
                 alt=""
               />
-              <div class="ml-2 font-semibold text-[18px]">jon Weeks Dev</div>
+              <div class="ml-2 font-semibold text-[18px]">{{ user.identities[0].identity_data.full_name }}</div>
             </div>
           </div>
           <div class="relative flex items-center w-full">
@@ -54,50 +54,50 @@
                   class="w-full bg-black outline-none"
                 ></textarea>
               </div>
-              <div class=" w-full">
+              <div class="w-full">
                 <div class="flex flex-col gap-2 py-1">
-
                   <div v-if="fileDisplay">
-                    <img class="mx-auto w-full mt-2 mr-2 rounded-lg" :src="fileDisplay" alt=""/>
-
+                    <img
+                      class="mx-auto w-full mt-2 mr-2 rounded-lg"
+                      :src="fileDisplay"
+                      alt=""
+                    />
                   </div>
                   <label for="fileInput">
-                    <Icon name="clarity:paperclip-line" color="#ffffff" size="25"/>
+                    <Icon
+                      name="clarity:paperclip-line"
+                      color="#ffffff"
+                      size="25"
+                    />
                     <input
-                     ref="file"
-                     type="file"
-                     id="fileInput"
-                     @input="onChange"
-                     hidden 
-                     accept=".jpg,.jpeg,.png" />
-
+                      ref="file"
+                      type="file"
+                      id="fileInput"
+                      @input="onChange"
+                      hidden
+                      accept=".jpg,.jpeg,.png"
+                    />
                   </label>
-
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button 
-       v-if="text"
-       :disabled="isLoading"
-       class="fixed bottom-0 font-bold text-lg w-full p-2 bg-black inline-block float-right p-4 border-t border-t-gray-700" 
-       :class="isLoading ? 'text-gray-600' : 'text-blue-600'" 
+      <button
+        v-if="text"
+        :disabled="isLoading"
+        class="fixed bottom-0 font-bold text-lg w-full p-2 bg-black inline-block float-right p-4 border-t border-t-gray-700"
+        :class="isLoading ? 'text-gray-600' : 'text-blue-600'"
       >
-      <div v-if="!isLoading">Post</div>
-      <div v-else class="flex items-center gap-2 justify-center">
-        <Icon name="eos-icons:bubble-loading" size="25"/>
-        Please wait...
-
-      </div>
-
+        <div v-if="!isLoading">Post</div>
+        <div v-else class="flex items-center gap-2 justify-center">
+          <Icon name="eos-icons:bubble-loading" size="25" />
+          Please wait...
+        </div>
       </button>
-
     </div>
   </div>
- 
 </template>
 
 <script setup>
@@ -105,8 +105,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useUserStore } from "~~/store/user";
 const userStore = useUserStore();
 
-// const client = useSupabaseClient()
-// const user = useSupabaseUser()
+const client = useSupabaseClient()
+const user = useSupabaseUser()
 
 let text = ref(null);
 let isLoading = ref(false);

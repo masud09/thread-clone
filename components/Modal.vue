@@ -14,7 +14,7 @@
 
             </button>
             <div class="border-b border-b-gray-700 my-1"/>
-            <button class="flex items-center justify-between bg-black w-full p-3" >
+            <button @click="logout()" class="flex items-center justify-between bg-black w-full p-3" >
                 <div>
                     Log Out 
                 </div>
@@ -31,12 +31,12 @@
 <script setup>
 import { useUserStore } from '~/store/user';
 const userStore = useUserStore()
-// const client = useSupabaseClient()
+const client = useSupabaseClient()
 
-// const logout = () =>{
+const logout = () =>{
 
-//     client.auth.signOut()
-//     userStore.isLogoutOverlay = false
-//     return navigateTo('/')
-// }
+    client.auth.signOut()
+    userStore.isLogoutOverlay = false
+    return navigateTo('/')
+}
 </script>
